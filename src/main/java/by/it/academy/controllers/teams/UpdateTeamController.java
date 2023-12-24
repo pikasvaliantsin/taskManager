@@ -16,35 +16,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/teams/update")
+import static by.it.academy.utils.Constants.*;
+
+@WebServlet(urlPatterns = TEAMS_UPDATE)
 public class UpdateTeamController extends HttpServlet {
-
-
     private final UserService userService = UserServiceImpl.getInstance();
     private final TaskService taskService = TaskServiceImpl.getInstance();
     private final TeamService teamService = TeamServiceImpl.getInstance();
-    private final TeamMapper teamMapper = new TeamMapper();
-    private Team team;
-    private long id;
-
+    private final TeamMapper teamMapper = TeamMapper.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        id = Long.parseLong(req.getParameter("teamId"));
-        team = teamService.getTeam(id);
-        req.setAttribute("name", team.getTeamName());
-        req.setAttribute("users", userService.readUsers());
-        req.setAttribute("members", team.getMembers());
-        req.setAttribute("tasks", team.getTasks());
-        req.setAttribute("allTasks", taskService.readTasks());
-
-        req.getRequestDispatcher("/pages/teams/updateTeam.jsp").forward(req, resp);
+        long id = Long.parseLong(req.getParameter(TEAM_ID));
+        Team team = teamService.getTeam(id);
+        req.setAttribute(TEAM_NAME, team.getTeamName());
+        req.setAttribute(USERS, userService.readUsers());
+        req.setAttribute(MEMBERS, team.getMembers());
+        req.setAttribute(TEAM_TASKS, team.getTasks());
+        req.setAttribute(TASKS, taskService.readTasks());
+        req.getRequestDispatcher(UPDATE_TEAM_JSP).forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        team = teamMapper.UpdateTeam(req);
+        long id = Long.parseLong(req.getParameter(TEAM_ID));
+        Team team = teamMapper.UpdateTeam(req);
         teamService.setTeam(id, team);
-        req.getRequestDispatcher("/teams/read").forward(req, resp);
+        req.getRequestDispatcher(TEAMS_READ).forward(req, resp);
     }
 }

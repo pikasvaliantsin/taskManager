@@ -20,7 +20,7 @@
         <tbody>
         <tr>
             <td><input type="text" name="task" value="${task}"></td>
-            <td><input type="text" name="task_description" value="${description}"></td>
+            <td><input type="text" name="task_description" value="${task_description}"></td>
             <td>
                 <select name="user">
                     <c:forEach var="user" items="${users}">

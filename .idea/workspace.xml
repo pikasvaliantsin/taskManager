@@ -11,6 +11,24 @@
   <component name="ChangeListManager">
     <list default="true" id="5b24e017-079b-44d2-9b48-e6201ef98f01" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/filters/RegistrationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/filters/RegistrationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/menu/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/menu/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/tasks/CreateTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/tasks/CreateTaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/tasks/DeleteTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/tasks/DeleteTaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/tasks/ReadTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/tasks/ReadTaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/tasks/UpdateTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/tasks/UpdateTaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/teams/CreateTeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/teams/CreateTeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/teams/DeleteTeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/teams/DeleteTeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/teams/ReadTeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/teams/ReadTeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/teams/UpdateTeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/teams/UpdateTeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/users/CreateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/users/CreateUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/users/DeleteUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/users/DeleteUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/users/ReadUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/users/ReadUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/users/UpdateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/users/UpdateUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/mappers/TaskMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/mappers/TaskMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/utils/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/tasks/updateTask.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/tasks/updateTask.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/teams/updateTeam.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/teams/updateTeam.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +69,16 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Java Enterprise IT Academy/taskFlow-manager/src/main/webapp/pages/teams",
+    "last_opened_file_path": "D:/Java Enterprise IT Academy/taskFlow-manager",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.sourceCode"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -169,7 +194,8 @@
       <workItem from="1701097731381" duration="615000" />
       <workItem from="1701161895519" duration="24642000" />
       <workItem from="1701261450247" duration="70036000" />
-      <workItem from="1701865328226" duration="20638000" />
+      <workItem from="1701865328226" duration="32505000" />
+      <workItem from="1703427040832" duration="651000" />
     </task>
     <servers />
   </component>
@@ -179,11 +205,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/by/it/academy/controllers/tasks/UpdateTaskController.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/by/it/academy/repositories/users/UserRepositoryImpl.java</url>
           <line>37</line>

@@ -7,11 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/menu")
+import static by.it.academy.utils.Constants.*;
+
+@WebServlet(urlPatterns = MENU)
 public class MenuController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/pages/menu.jsp").forward(req, resp);
+        req.getRequestDispatcher(MENU_JSP).forward(req, resp);
     }
 
     @Override

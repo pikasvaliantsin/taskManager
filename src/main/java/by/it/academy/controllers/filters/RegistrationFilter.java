@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter("/users/create")
+import static by.it.academy.utils.Constants.*;
+
+@WebFilter(USERS_CREATE)
 public class RegistrationFilter extends HttpFilter {
 
     UserService userService = UserServiceImpl.getInstance();
@@ -23,8 +25,8 @@ public class RegistrationFilter extends HttpFilter {
         if (userService.isLoginUnique(login)) {
             chain.doFilter(req, res);
         } else {
-            req.setAttribute("username", login);
-            req.getRequestDispatcher("/pages/errors/registrationError.jsp").forward(req, res);
+            req.setAttribute(USERNAME, login);
+            req.getRequestDispatcher(REGISTRATION_ERROR).forward(req, res);
         }
 
     }

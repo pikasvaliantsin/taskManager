@@ -16,7 +16,7 @@
         </thead>
         <tbody>
         <tr>
-            <td><input type="text" name="teamName" value="${name}"></td>
+            <td><input type="text" name="teamName" value="${teamName}"></td>
             <td>
                 <c:forEach var="user" items="${users}">
                     <c:choose>
@@ -31,9 +31,9 @@
                 </c:forEach>
             </td>
             <td>
-                <c:forEach var="task" items="${allTasks}">
+                <c:forEach var="task" items="${tasks}">
                     <c:choose>
-                        <c:when test="${tasks.contains(task)}">
+                        <c:when test="${teamTasks.contains(task)}">
                             <input type="checkbox" name="checkedTasks" value="${task.taskId}" checked>${task.title}
                         </c:when>
                         <c:otherwise>
@@ -42,7 +42,6 @@
                     </c:choose>
                     <br/>
                 </c:forEach>
-
             </td>
         </tr>
         </tbody>

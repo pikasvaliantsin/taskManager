@@ -16,6 +16,17 @@ public class UserMapper {
 
     TeamService teamService = TeamServiceImpl.getInstance();
     TaskService taskService = TaskServiceImpl.getInstance();
+    public static UserMapper userMapper;
+
+    private UserMapper() {
+    }
+
+    public static UserMapper getInstance() {
+        if (userMapper == null) {
+            userMapper = new UserMapper();
+        }
+        return userMapper;
+    }
 
     public User buildUser(HttpServletRequest request) {
         return User.builder()

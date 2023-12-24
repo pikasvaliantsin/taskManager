@@ -11,17 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/users/delete")
+import static by.it.academy.utils.Constants.*;
+
+@WebServlet(urlPatterns = USERS_DELETE)
 public class DeleteUserController extends HttpServlet {
     private final UserService userService = UserServiceImpl.getInstance();
-    private User user;
-    private long id;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        id = Long.parseLong(req.getParameter("userId"));
-        user = userService.getUser(id);
+        long id = Long.parseLong(req.getParameter(USER_ID));
+        User user = userService.getUser(id);
         userService.deleteUser(user);
-        req.getRequestDispatcher("/users/read").forward(req, resp);
+        req.getRequestDispatcher(USERS_READ).forward(req, resp);
     }
 }

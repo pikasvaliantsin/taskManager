@@ -18,29 +18,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/tasks/create")
-public class CreateTaskController extends HttpServlet {
+import static by.it.academy.utils.Constants.*;
 
+@WebServlet(urlPatterns = TASKS_CREATE)
+public class CreateTaskController extends HttpServlet {
     private final TaskService taskService = TaskServiceImpl.getInstance();
     private final UserService userService = UserServiceImpl.getInstance();
     private final TeamService teamService = TeamServiceImpl.getInstance();
-
-    private final TaskMapper taskMapper = new TaskMapper();
+    private final TaskMapper taskMapper = TaskMapper.getInstance();
 
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("users", userService.readUsers());
-        req.setAttribute("teams", teamService.readTeams());
-        req.setAttribute("priorities", Priority.values());
-        req.setAttribute("statuses", Status.values());
-        req.getRequestDispatcher("/pages/tasks/createTask.jsp").forward(req, resp);
+        req.setAttribute(USERS, userService.readUsers());
+        req.setAttribute(TEAMS, teamService.readTeams());
+        req.setAttribute(PRIORITIES, Priority.values());
+        req.setAttribute(STATUSES, Status.values());
+        req.getRequestDispatcher(CREATE_TASK_JSP).forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Task task = taskMapper.buildMapper(req);
         taskService.createTask(task);
-        req.getRequestDispatcher("/tasks/read").forward(req, resp);
+        req.getRequestDispatcher(TASKS_READ).forward(req, resp);
     }
 }

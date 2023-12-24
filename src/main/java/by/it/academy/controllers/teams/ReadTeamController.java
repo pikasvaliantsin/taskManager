@@ -12,16 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/teams/read")
-public class ReadTeamController extends HttpServlet {
+import static by.it.academy.utils.Constants.*;
 
+@WebServlet(urlPatterns = TEAMS_READ)
+public class ReadTeamController extends HttpServlet {
     private final TeamService teamService = TeamServiceImpl.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Team> teams = teamService.readTeams();
-        req.setAttribute("teams", teams);
-        req.getRequestDispatcher("/pages/teams/readTeams.jsp").forward(req, resp);
+        req.setAttribute(TEAMS, teams);
+        req.getRequestDispatcher(READ_TEAM_JSP).forward(req, resp);
     }
 
     @Override

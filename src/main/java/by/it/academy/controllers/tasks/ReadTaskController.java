@@ -12,15 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/tasks/read")
+import static by.it.academy.utils.Constants.*;
+
+@WebServlet(urlPatterns = TASKS_READ)
 public class ReadTaskController extends HttpServlet {
     private final TaskService taskService = TaskServiceImpl.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Task> tasks = taskService.readTasks();
-        req.setAttribute("tasks", tasks);
-        req.getRequestDispatcher("/pages/tasks/readTasks.jsp").forward(req, resp);
+        req.setAttribute(TASKS, tasks);
+        req.getRequestDispatcher(READ_TASKS_JSP).forward(req, resp);
     }
 
     @Override

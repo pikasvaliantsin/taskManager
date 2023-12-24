@@ -20,29 +20,30 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/users/create")
+import static by.it.academy.utils.Constants.*;
+
+@WebServlet(urlPatterns = USERS_CREATE)
 public class CreateUserController extends HttpServlet {
 
     private final UserService userService = UserServiceImpl.getInstance();
     private final TaskService taskService = TaskServiceImpl.getInstance();
-
     private final TeamService teamService = TeamServiceImpl.getInstance();
-    private final UserMapper userMapper = new UserMapper();
+    private final UserMapper userMapper = UserMapper.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Task> tasks = taskService.readTasks();
         List<Team> teams = teamService.readTeams();
-        req.setAttribute("roles", Role.values());
-        req.setAttribute("tasks", tasks);
-        req.setAttribute("teams", teams);
-        req.getRequestDispatcher("/pages/users/createUser.jsp").forward(req, resp);
+        req.setAttribute(ROLES, Role.values());
+        req.setAttribute(TASKS, tasks);
+        req.setAttribute(TEAMS, teams);
+        req.getRequestDispatcher(CREATE_USERS_JSP).forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = userMapper.buildUser(req);
         userService.createUser(user);
-        req.getRequestDispatcher("/users/read").forward(req, resp);
+        req.getRequestDispatcher(USERS_READ).forward(req, resp);
     }
 }

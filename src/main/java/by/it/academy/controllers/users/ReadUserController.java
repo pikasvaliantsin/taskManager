@@ -1,8 +1,6 @@
 package by.it.academy.controllers.users;
 
 import by.it.academy.entities.User;
-import by.it.academy.repositories.users.UserRepository;
-import by.it.academy.repositories.users.UserRepositoryImpl;
 import by.it.academy.services.users.UserService;
 import by.it.academy.services.users.UserServiceImpl;
 
@@ -14,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/users/read")
+import static by.it.academy.utils.Constants.*;
+
+@WebServlet(urlPatterns = USERS_READ)
 public class ReadUserController extends HttpServlet {
 
     private final UserService userService = UserServiceImpl.getInstance();
@@ -22,8 +22,8 @@ public class ReadUserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<User> users = userService.readUsers();
-        req.setAttribute("users", users);
-        req.getRequestDispatcher("/pages/users/readUsers.jsp").forward(req, resp);
+        req.setAttribute(USERS, users);
+        req.getRequestDispatcher(READ_USERS_JSP).forward(req, resp);
     }
 
     @Override

@@ -11,15 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/tasks/delete")
+import static by.it.academy.utils.Constants.*;
+
+@WebServlet(urlPatterns = TASKS_DELETE)
 public class DeleteTaskController extends HttpServlet {
     private final TaskService taskService = TaskServiceImpl.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        long id = Long.parseLong(req.getParameter("taskId"));
+        long id = Long.parseLong(req.getParameter(TASK_ID));
         Task task = taskService.getTask(id);
         taskService.deleteTask(task);
-        req.getRequestDispatcher("/tasks/read").forward(req, resp);
+        req.getRequestDispatcher(TASKS_READ).forward(req, resp);
     }
 }

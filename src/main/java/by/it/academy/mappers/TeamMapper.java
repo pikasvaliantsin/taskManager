@@ -22,8 +22,18 @@ public class TeamMapper {
 
     UserService userService = UserServiceImpl.getInstance();
     TaskService taskService = TaskServiceImpl.getInstance();
-
     TeamService teamService = TeamServiceImpl.getInstance();
+    private static TeamMapper teamMapper;
+
+    private TeamMapper() {
+    }
+
+    public static TeamMapper getInstance() {
+        if (teamMapper == null) {
+            teamMapper = new TeamMapper();
+        }
+        return teamMapper;
+    }
 
     public Team buildTeam(HttpServletRequest request) {
         return Team.builder()

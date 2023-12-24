@@ -19,27 +19,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/teams/create")
-public class CreateTeamController extends HttpServlet {
+import static by.it.academy.utils.Constants.*;
 
+@WebServlet(urlPatterns = TEAMS_CREATE)
+public class CreateTeamController extends HttpServlet {
     private final UserService userService = UserServiceImpl.getInstance();
     private final TaskService taskService = TaskServiceImpl.getInstance();
     private final TeamService teamService = TeamServiceImpl.getInstance();
-    private final TeamMapper teamMapper = new TeamMapper();
+    private final TeamMapper teamMapper = TeamMapper.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<User> users = userService.readUsers();
         List<Task> tasks = taskService.readTasks();
-        req.setAttribute("users", users);
-        req.setAttribute("tasks", tasks);
-        req.getRequestDispatcher("/pages/teams/createTeams.jsp").forward(req, resp);
+        req.setAttribute(USERS, users);
+        req.setAttribute(TASKS, tasks);
+        req.getRequestDispatcher(CREATE_TEAM_JSP).forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Team team = teamMapper.buildTeam(req);
         teamService.createTeam(team);
-        req.getRequestDispatcher("/teams/read").forward(req, resp);
+        req.getRequestDispatcher(TEAMS_READ).forward(req, resp);
     }
 }
